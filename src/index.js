@@ -2,9 +2,12 @@ const mongoose = require("mongoose");
 const express = require("express");
 const route = require("./route/userRoute");
 const app = express();
+require('dotenv').config();
+// console.log(process.env.mongodb)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// console.log(process.env.mongodb)
 mongoose
   .connect(
    process.env.mongodb ,
