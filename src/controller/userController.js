@@ -19,20 +19,23 @@ const register = async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       phone: req.body.phone,
+      image:'images/'+req.file.filenme,
       password: passwordHash
     });
 
     await newUser.save();
-console.log(newUser)
-    // Create a token for the newly registered user
-    const token = jwt.sign({ userId: newUser._id }, 'naman', { expiresIn: '30d' });
-   return res.status(201).json({
-    success :true,
-    message : "user created successfully",
-    token: token
+
+    res.render('register',{message : "register successfully"})
+// console.log(newUser)
+//     // Create a token for the newly registered user
+//     const token = jwt.sign({ userId: newUser._id }, 'naman', { expiresIn: '30d' });
+//    return res.status(201).json({
+//     success :true,
+//     message : "user created successfully",
+//     token: token
 
 
-   })
+  //  })
     // res.render('register', { message: 'Your registration has been completed', token });
   } catch (err) {
     console.error(err);

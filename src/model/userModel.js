@@ -7,8 +7,8 @@ let userSchema = new mongoose.Schema(
     phone: { type: String, required: true },
     email: { type: String, required: true },
     password:{type :String,required:true},
-    isOnline: {type: String ,
-    enum: ["yes", "no"]}
+    
+    isOnline: { type: Boolean, default: false } 
   },
   { timestamps: true }
 );
